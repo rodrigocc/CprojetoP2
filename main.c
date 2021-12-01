@@ -45,7 +45,7 @@ int winByLines(){
     int coordLine ,coordColumn , igual = 1;
     for(coordLine = 0 ; coordLine <3 ; coordLine++){
         for(coordColumn = 0; coordColumn<2; coordColumn++){
-            if(isCharacterValid(table[coordLine][coordColumn]) && table[coordLine][coordColumn+1])
+            if(isCharacterValid(table[coordLine][coordColumn]) && table[coordLine][coordColumn] == table[coordLine][coordColumn+1])
                 igual ++;
         }
         if(igual == 3){
@@ -60,7 +60,7 @@ int winByColumns(){
     int coordLine ,coordColumn , igual = 1;
     for(coordLine = 0 ; coordLine <3 ; coordLine++){
         for(coordColumn = 0; coordColumn<2; coordColumn++){
-            if(isCharacterValid(table[coordColumn][coordLine]) && table[coordColumn + 1][coordLine])
+            if(isCharacterValid(table[coordLine][coordColumn]) && table[coordLine][coordColumn] == table[coordLine + 1][coordColumn])
                 igual ++;
         }
         if(igual == 3){
@@ -76,17 +76,70 @@ int winByColumns(){
 
 int winByMainDiagonals(){
     int i, igual =1 ;
-
-//    for(i = 0 ; i < 3 ; i++){
-//        if(isCharacterValid())
-//    }
+    for(i = 0 ; i <  2 ; i ++){
+        if(isCharacterValid(table[i][i]) && table[i][i] == table[i +1 ][i+1]){
+            igual++;
+        }
+        if(igual == 3){
+            return 1;
+        }
+        return 0;
+    }
 }
+
 
 int winBySecondaryDiagonals(){
+    int i, igual = 1 ;
+    for(i = 0 ; i < 2 ; i ++){
+        if(isCharacterValid(table[i][3 - (i+1)]  &&   table[i][3 -(i+1)] == table[i+1][3 - (i+2)])){
+
+            igual++;
+        }
+
+        if(igual == 3){
+            return 1;
+        }
+        return 0 ;
+
+    }
+
+
+
 }
 
+
+void displayTable(){
+    int l= 0 , c;
+
+    printf("0 1 2 \n" );
+    printf("%c",table);
+
+    for(c = 0 ; c < 3; c++){
+
+        if(isCharacterValid(table[l][c])){
+            printf('%c' + table[l][c] + '|');
+
+        }
+        else{
+            printf(" ");
+        }
+
+    }
+
+
+//
+//               0  1  2
+//            0  x| O | x
+//            1  O| x | O
+//            2  x| x | O
+
+
+}
 int main()
 
 {
-
+    do {
+        printf()
+        while ()
+    }
 }
